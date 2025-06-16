@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Disease Prediction</title>
+    <link rel="stylesheet" href="../static/css/liver1.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Liver Disease Prediction</h2>
+        <form action="/liver_predict" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="input-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="bmi">BMI</label>
+                <input type="number" id="bmi" name="bmi" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <label for="alcohol">Alcohol Consumption</label>
+                <input type="number" id="alcohol" name="alcohol" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <label for="smoking">Smoking</label>
+                <select id="smoking" name="smoking" required>
+                    <option value="0">Non-smoker</option>
+                    <option value="1">Smoker</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="genetic-risk">Genetic Risk</label>
+                <select id="genetic-risk" name="genetic-risk" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="physical-activity">Physical Activity</label>
+                <input type="number" id="physical-activity" name="physical-activity" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <label for="diabetes">Diabetes</label>
+                <select id="diabetes" name="diabetes" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="hypertension">Hypertension</label>
+                <select id="hypertension" name="hypertension" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="liver-function-test">Liver Function Test</label>
+                <input type="number" id="liver-function-test" name="liver-function-test" step="0.01" required>
+            </div>
+            <button type="submit" class="submit-btn">Predict</button>
+        </form>
+        <div>
+            <h3>{{ liver_Result }}</h3>
+        </div>
+    </div>
+</body>
+</html>

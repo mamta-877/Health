@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/diabetee.css">
+    <title>Diabetes Prediction Software</title>
+</head>
+<body>
+    <div class="container">
+        <div class="head"><h1>Diabetes Prediction</h1></div>
+        <form action="/dia_predict" method="post">
+            {% csrf_token %}
+            <div class="data">
+                <div>Pregnancies:</div>
+                <input type="number" name="Pregnancies" required>
+            </div>
+            <div class="data">
+                <div>Glucose:</div>
+                <input type="number" name="Glucose" required>
+            </div>
+            <div class="data">
+                <div>Blood Pressure:</div>
+                <input type="number" name="Blood_Pressure" required>
+            </div>
+            <div class="data">
+                <div>Skin Thickness:</div>
+                <input type="number" name="Skin_Thickness" required>
+            </div>
+            <div class="data">
+                <div>Insulin:</div>
+                <input type="number" name="Insulin" required>
+            </div>
+            <div class="data">
+                <div>BMI:</div>
+                <input type="number" step="0.1" name="BMI" required>
+            </div>
+            <div class="data">
+                <div>Diabetes Pedigree Function:</div>
+                <input type="number" step="0.01" name="DPF" required>
+            </div>
+            <div class="data">
+                <div>Age:</div>
+                <input type="number" name="Age" required>
+            </div>
+            <div>
+                <button type="submit">Predict</button>
+            </div>
+        </form>
+        <div>
+            <h3>{{ diabetes_Result }}</h3>
+        </div>
+    </div>
+</body>
+</html>
